@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block page %}
+<ul>
+    {% for pizza in pizzas %}
+        <li>
+            <div>
+                <h2><a href="{% url 'pizza-detail' pizza_id=pizza.id %}">{{ pizza.name }}</a></h2>
+                <div>{{ pizza.short_description }}</div>
+                <div>{{ pizza.price | floatformat:"2" }}</div>
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
